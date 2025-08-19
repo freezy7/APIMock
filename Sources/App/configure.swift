@@ -30,3 +30,13 @@ public func configure(_ app: Application) async throws {
     // register routes
     try routes(app)
 }
+
+/**
+ command line
+ 
+ docker run --name postgres -e POSTGRES_DB=apimock \
+   -e POSTGRES_USER=apimock -e POSTGRES_PASSWORD=password \
+   -p 5432:5432 -d postgres
+ 
+ docker-compose down --volumes
+ */
