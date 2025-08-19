@@ -3,21 +3,8 @@ import Vapor
 
 func routes(_ app: Application) throws {
     app.get { req async in
-        return req.redirect(to: "/dashboard")
+        return "APIMock API Server is running. Use /api/* for API endpoints and /mock/{projectId}/* for mock responses."
     }
-
-    // Web routes
-    let webController = WebController()
-    app.get("dashboard", use: webController.dashboard)
-    app.get("projects", use: webController.projectsList)
-    app.get("projects", "new", use: webController.createProjectForm)
-    app.post("projects", use: webController.createProject)
-    app.get("projects", ":projectID", use: webController.projectDetail)
-    app.get("projects", ":projectID", "endpoints", "new", use: webController.createEndpointForm)
-    app.post("projects", ":projectID", "endpoints", use: webController.createEndpoint)
-    app.get("endpoints", ":endpointID", use: webController.endpointDetail)
-    app.get("endpoints", ":endpointID", "responses", "new", use: webController.createResponseForm)
-    app.post("endpoints", ":endpointID", "responses", use: webController.createResponse)
 
     // API routes
     let apiController = APIController()

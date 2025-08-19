@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-struct APIController {
+struct APIController: Sendable {
     func getAllProjects(req: Request) async throws -> [Project] {
         return try await Project.query(on: req.db)
             .with(\.$endpoints)

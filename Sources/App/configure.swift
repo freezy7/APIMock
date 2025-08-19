@@ -1,6 +1,5 @@
 import Fluent
 import FluentPostgresDriver
-import Leaf
 import Vapor
 
 // configures your application
@@ -17,9 +16,6 @@ public func configure(_ app: Application) async throws {
         database: Environment.get("DATABASE_NAME") ?? "apimock",
         tls: .prefer(try .init(configuration: .clientDefault)))
     ), as: .psql)
-
-    // Configure Leaf
-    app.views.use(.leaf)
 
     // Add migrations
     app.migrations.add(CreateProject())

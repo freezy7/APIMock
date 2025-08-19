@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-struct MockController {
+struct MockController: Sendable {
     func handleRequest(req: Request) async throws -> Response {
         guard let projectID = req.parameters.get("projectID", as: UUID.self) else {
             throw Abort(.badRequest)
