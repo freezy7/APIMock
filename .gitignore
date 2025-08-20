@@ -60,3 +60,22 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# APIMock specific
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.log
+*.db
+*.sqlite
+*.sqlite3
+node_modules/
+dist/
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
